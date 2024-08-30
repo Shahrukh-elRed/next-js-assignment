@@ -1,118 +1,144 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
+import blueTickImg from "../assets/images/aadhaar-blue-tick.png";
+import briefcase from "../assets/images/briefcase.png";
+import location from "../assets/images/location.png";
+import share from "../assets/images/share.png";
+import cardThumbnail from "../assets/images/mini-card.png";
+import star from "../assets/images/star.png";
+import CommentCard from "@/components/CommentCard";
+import commentImgOne from "../assets/images/comment_one.png";
+import commentImgTwo from "../assets/images/comment_two.png";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default function Home({ userData }) {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
+    <>
+      <div
+        className="container"
+        style={{
+          backgroundImage: `url(
+            ${userData?.result?.[0]?.profileDesignInfo?.profileBannerImageURL}
+          )`,
+        }}
+      >
+        <div className="profile-top-header">Profile</div>
+        <div className="profile-container">
+          <div className="profile-picture-div">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              src={userData?.result?.[0]?.dpURL}
+              className="profile-dp-image"
+              width={60}
+              height={60}
+              alt=""
             />
-          </a>
+          </div>
+
+          <div className="user-name-div">
+            <span className="user-name">
+              {userData?.result?.[0]?.firstname +
+                " " +
+                userData?.result?.[0]?.lastname}
+            </span>
+            <Image
+              src={blueTickImg}
+              height={18}
+              width={18}
+              alt=""
+              className="bluetick-image"
+            />
+          </div>
+
+          <div className="user-title-div">
+            <Image
+              src={briefcase}
+              height={24}
+              width={24}
+              alt=""
+              className="user-title-img"
+            />
+            <span className="user-title">
+              {userData?.result?.[0]?.title?.[0]?.value}
+            </span>
+          </div>
+
+          <div className="user-location">
+            <Image src={location} height={16} width={12} alt="" className="" />
+            <span className="user-location-text">
+              {userData?.result?.[0]?.address?.city +
+                ", " +
+                userData?.result?.[0]?.address?.country}
+            </span>
+          </div>
+
+          <div className="mini-card-thumbnail">
+            <Image src={cardThumbnail} alt="" height={85} width={56} />
+          </div>
+
+          <div className="share-div">
+            <span className="share-icon-div">
+              <Image src={share} height={22} width={16} alt="" />
+            </span>
+            <span className="share-text">Share</span>
+          </div>
+
+          <div className="ratings-div">
+            <div className="absolute-star">
+              <Image src={star} height={28} width={28} alt="" />
+            </div>
+            <span className="ratings-header">Ratings</span>
+            <div className="ratings-count-and-text">
+              <span className="ratings-count">57</span>
+              <span className="ratings-text">
+                Has ethical code of conduct and is safe to do bussines with
+              </span>
+            </div>
+            <hr className="solid" />
+            <div className="ratings-count-and-text">
+              <span className="ratings-count-two">27</span>
+              <span className="ratings-text-two">
+                Met In real life/Video call
+              </span>
+            </div>
+          </div>
+
+          <div className="comments-section">
+            <div className="comments-header">
+              <span className="comments-header-left">Comments</span>
+              <span className="comments-header-right">See all</span>
+            </div>
+            <div className="comment-cards-container">
+              <CommentCard
+                img={commentImgOne}
+                commentText="See you in the next event"
+                tagged={true}
+              />
+              <CommentCard
+                img={commentImgTwo}
+                commentText="Never judge a book by it's cover"
+                moreReplies={true}
+              />
+              <CommentCard
+                img={commentImgTwo}
+                commentText="Never judge a book by it's cover"
+                moreReplies={true}
+              />
+              <CommentCard
+                img={commentImgOne}
+                commentText="See you in the next event"
+                tagged={true}
+              />
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </>
   );
 }
+
+export const getServerSideProps = async () => {
+  let userData = await fetch(
+    "https://dev.elred.io/noSessionProfileDetails?userCode=66961e8dcc9a8155d09b8c9b",
+    { method: "POST" }
+  );
+  userData = await userData.json();
+  return { props: { userData } };
+};
