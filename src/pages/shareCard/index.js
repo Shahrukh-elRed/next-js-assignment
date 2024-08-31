@@ -24,8 +24,9 @@ const ShareCard = ({ userData, metaData }) => {
   return (
     <>
       <Head>
+        <title>el Red User Card</title>
         <meta
-          property="og:cardtitle"
+          property="og:title"
           content={metaData?.cardTitle}
           key="cardtitle"
         />
