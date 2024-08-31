@@ -11,6 +11,7 @@ import commentImgTwo from "../assets/images/comment_two.png";
 import Head from "next/head";
 import toast, { toastConfig } from "react-simple-toasts";
 import "react-simple-toasts/dist/theme/dark.css";
+import Link from "next/link";
 
 toastConfig({
   theme: "dark",
@@ -112,9 +113,11 @@ export default function Home({ userData, metaData }) {
             </span>
           </div>
 
-          <div className="mini-card-thumbnail">
-            <Image src={cardThumbnail} alt="" height={85} width={56} />
-          </div>
+          <Link href="/shareCard">
+            <div className="mini-card-thumbnail">
+              <Image src={cardThumbnail} alt="" height={85} width={56} />
+            </div>
+          </Link>
 
           <div className="share-div">
             <span className="share-icon-div" onClick={handleShare}>

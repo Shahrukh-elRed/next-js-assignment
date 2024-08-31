@@ -47,6 +47,10 @@ body {
   .comments-section {
     width: calc(100% - 32px) !important;
   }
+
+  .card-container {
+    width: calc(100% - 32px) !important;
+  }
 }
 
 .profile-top-header {
@@ -372,4 +376,61 @@ hr.solid {
   height: 1px;
   color: #fff;
   opacity: 0.6;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  height: 654px;
+  width: 355px;
+  margin: 3vh auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border: 1px solid #909090;
+  border-radius: 8px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.card-inner-container {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.card-share-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  margin: 16px 18px 0 0;
+  color: #fff;
+}
+
+.card-share-icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  width: 25px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card-share-icon {
+  height: 12px;
+  width: 14px;
+}
+
+.card-share-text {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.8px;
 }
