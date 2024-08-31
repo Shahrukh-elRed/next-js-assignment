@@ -9,9 +9,28 @@ import CommentCard from "@/components/CommentCard";
 import commentImgOne from "../assets/images/comment_one.png";
 import commentImgTwo from "../assets/images/comment_two.png";
 import Head from "next/head";
+import toast, { toastConfig } from "react-simple-toasts";
+import "react-simple-toasts/dist/theme/dark.css";
+
+toastConfig({
+  theme: "dark",
+});
 
 export default function Home({ userData, metaData }) {
-  console.log("metaData", metaData);
+  const handleShare = async () => {
+    const url = "https://next-js-assignment-one.vercel.app/";
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          url,
+        });
+      } catch (error) {
+        console.error("Error sharing:", error);
+      }
+    } else {
+      toast("Share API is not supported in this browser!");
+    }
+  };
 
   return (
     <>
@@ -98,10 +117,12 @@ export default function Home({ userData, metaData }) {
           </div>
 
           <div className="share-div">
-            <span className="share-icon-div">
+            <span className="share-icon-div" onClick={handleShare}>
               <Image src={share} height={22} width={16} alt="" />
             </span>
-            <span className="share-text">Share</span>
+            <span className="share-text" onClick={handleShare}>
+              Share
+            </span>
           </div>
 
           <div className="ratings-div">

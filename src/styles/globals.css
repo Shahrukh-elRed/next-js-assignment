@@ -179,6 +179,7 @@ body {
   font-weight: 500;
   line-height: 14.4px;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .absolute-star {
