@@ -2,10 +2,12 @@ import Head from "next/head";
 import Image from "next/image";
 import cardShare from "../../assets/images/cardShare.png";
 import crossIcon from "../../assets/images/crossIcon.png";
+import blueTick from "../../assets/images/aadhaar-blue-tick.png";
 import Link from "next/link";
 
 const ShareCard = ({ userData, metaData }) => {
-  console.log(metaData);
+  console.log(userData);
+
   const handleShare = async () => {
     const url = "https://next-js-assignment-one.vercel.app/shareCard";
     if (navigator.share) {
@@ -81,15 +83,38 @@ const ShareCard = ({ userData, metaData }) => {
               Share
             </span>
           </div>
-
-          <div className="card-dp-container">
-            <Image
-              src={userData?.result?.[0]?.dpURL}
-              className="card-dp-image"
-              width={116}
-              height={116}
-              alt=""
-            />
+          <div className="card-dp-container-outer">
+            <div className="card-dp-container">
+              <Image
+                src={userData?.result?.[0]?.dpURL}
+                className="card-dp-image"
+                width={116}
+                height={116}
+                alt=""
+              />
+              <Image
+                src={blueTick}
+                className="verified-blue-tick-png"
+                width={25}
+                height={25}
+                alt=""
+              />
+            </div>
+          </div>
+          <div className="card-first-name">
+            {userData?.result?.[0]?.firstname}
+          </div>
+          <div className="card-last-name">
+            {userData?.result?.[0]?.lastname}
+          </div>
+          <div className="card-title">
+            {userData?.result?.[0]?.title?.[0]?.value}
+          </div>
+          <div className="card-company">Wildcraft</div>
+          <div className="card-location">
+            {userData?.result?.[0]?.address?.city +
+              ", " +
+              userData?.result?.[0]?.address?.country}
           </div>
         </div>
       </div>

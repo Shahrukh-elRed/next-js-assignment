@@ -464,9 +464,76 @@ hr.solid {
   width: 18px;
 }
 
-.card-dp-container {
+.card-dp-container-outer {
   display: flex;
   justify-content: center;
   margin: 26px 0 27px 0;
+}
+
+.card-dp-container {
+  display: inline-flex;
+  justify-content: center;
   border-radius: 50%;
+  position: relative;
+}
+
+.card-dp-image {
+  border-radius: 50%;
+  border: 3px solid #3a90ff;
+}
+
+.verified-blue-tick-png {
+  position: absolute;
+  bottom: 2px;
+  left: 80px;
+}
+
+.card-first-name {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 35.22px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.card-last-name {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.13px;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18.78px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.card-company {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18.78px;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.card-location {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18.78px;
+  text-align: center;
+  margin-bottom: 35px;
 }
