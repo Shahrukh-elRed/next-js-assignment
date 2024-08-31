@@ -13,7 +13,7 @@ const CommentCard = ({ img, commentText, tagged, moreReplies }) => {
         <div className="likes-section">
           <span>1s</span>
           <span>241 Likes</span>
-          <span>Reply</span>
+          <span className="cursor-pointer">Reply</span>
         </div>
         {moreReplies && (
           <div className="more-replies">
