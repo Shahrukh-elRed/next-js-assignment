@@ -4,6 +4,9 @@ import cardShare from "../../assets/images/cardShare.png";
 import crossIcon from "../../assets/images/crossIcon.png";
 import blueTick from "../../assets/images/aadhaar-blue-tick.png";
 import Link from "next/link";
+import AwardIconsContainer from "@/components/AwardIconsContainer";
+import GroupIconsContainer from "@/components/GroupIconsContainer";
+import BottomIconsContainer from "@/components/BottomIconsContainer";
 
 const ShareCard = ({ userData, metaData }) => {
   console.log(userData);
@@ -116,6 +119,9 @@ const ShareCard = ({ userData, metaData }) => {
               ", " +
               userData?.result?.[0]?.address?.country}
           </div>
+          <AwardIconsContainer />
+          <GroupIconsContainer />
+          <BottomIconsContainer />
         </div>
       </div>
     </>

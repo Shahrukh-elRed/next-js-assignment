@@ -151,6 +151,15 @@ body {
   margin-top: 79px;
   margin-left: 26px;
   cursor: pointer;
+  height: 85px;
+  width: 56px;
+}
+
+.mini-card-thumbnail-image {
+  height: 85px;
+  width: 56px;
+  border-radius: 2px;
+  border: 1.5px solid #c5c5c5;
 }
 
 .share-div {
@@ -536,4 +545,70 @@ hr.solid {
   line-height: 18.78px;
   text-align: center;
   margin-bottom: 35px;
+}
+
+.award-icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 28px;
+}
+
+.icon-plus-count {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+}
+
+.count {
+  margin: -1px 0 0 -1px;
+}
+
+.group-icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-bottom: 62px;
+}
+
+.bottom-icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bottom-icon-div {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+}
+
+.bottom-card-img {
+  height: 18px;
+  width: 11px;
+}
+
+.bottom-card-img-two {
+  height: 16px;
+  width: 20px;
+}
+
+.bottom-card-img-three {
+  height: 18px;
+  width: 18px;
+}
+
+.bottom-card-img-five {
+  height: 20px;
+  width: 22px;
 }

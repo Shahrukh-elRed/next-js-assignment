@@ -3,7 +3,7 @@ import blueTickImg from "../assets/images/aadhaar-blue-tick.png";
 import briefcase from "../assets/images/briefcase.png";
 import location from "../assets/images/location.png";
 import share from "../assets/images/share.png";
-import cardThumbnail from "../assets/images/mini-card.png";
+import cardThumbnail from "../assets/images/card-preview.png";
 import star from "../assets/images/star.png";
 import CommentCard from "@/components/CommentCard";
 import commentImgOne from "../assets/images/comment_one.png";
@@ -115,7 +115,13 @@ export default function Home({ userData, metaData }) {
 
           <Link href="/shareCard">
             <div className="mini-card-thumbnail">
-              <Image src={cardThumbnail} alt="" height={85} width={56} />
+              <Image
+                src={cardThumbnail}
+                alt=""
+                height={85}
+                width={56}
+                className="mini-card-thumbnail-image"
+              />
             </div>
           </Link>
 
