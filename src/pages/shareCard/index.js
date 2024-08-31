@@ -18,7 +18,7 @@ const ShareCard = ({ userData, metaData }) => {
   const handleShare = async () => {
     const time = new Date().getTime().toString().slice(-6);
 
-    const url = `https://next-js-assignment-one.vercel.app/shareCard&t=${time}`;
+    const url = `https://next-js-assignment-one.vercel.app/shareCard?t=${time}`;
     if (navigator.share) {
       try {
         await navigator.share({
