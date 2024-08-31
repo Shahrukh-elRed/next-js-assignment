@@ -463,3 +463,10 @@ hr.solid {
   height: 18px;
   width: 18px;
 }
+
+.card-dp-container {
+  display: flex;
+  justify-content: center;
+  margin: 26px 0 27px 0;
+  border-radius: 50%;
+}

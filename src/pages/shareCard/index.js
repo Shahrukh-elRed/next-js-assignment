@@ -5,6 +5,7 @@ import crossIcon from "../../assets/images/crossIcon.png";
 import Link from "next/link";
 
 const ShareCard = ({ userData, metaData }) => {
+  console.log(metaData);
   const handleShare = async () => {
     const url = "https://next-js-assignment-one.vercel.app/shareCard";
     if (navigator.share) {
@@ -26,7 +27,7 @@ const ShareCard = ({ userData, metaData }) => {
         <meta
           property="og:cardtitle"
           content={metaData?.cardTitle}
-          key="title"
+          key="cardtitle"
         />
         <meta
           property="og:description"
@@ -78,6 +79,16 @@ const ShareCard = ({ userData, metaData }) => {
             <span className="card-share-text" onClick={handleShare}>
               Share
             </span>
+          </div>
+
+          <div className="card-dp-container">
+            <Image
+              src={userData?.result?.[0]?.dpURL}
+              className="card-dp-image"
+              width={116}
+              height={116}
+              alt=""
+            />
           </div>
         </div>
       </div>
