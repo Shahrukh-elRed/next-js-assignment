@@ -51,6 +51,10 @@ body {
   .card-container {
     width: calc(100% - 32px) !important;
   }
+
+  .card-cross-div {
+    width: calc(100% - 32px) !important;
+  }
 }
 
 .profile-top-header {
@@ -383,7 +387,7 @@ hr.solid {
   flex-direction: column;
   height: 654px;
   width: 355px;
-  margin: 3vh auto;
+  margin: 0 auto 20px auto;
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -411,6 +415,15 @@ hr.solid {
   color: #fff;
 }
 
+.card-cross-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 355px;
+  height: 50px;
+  margin: auto;
+}
+
 .card-share-icon-container {
   display: inline-flex;
   align-items: center;
@@ -433,4 +446,20 @@ hr.solid {
   font-size: 14px;
   font-weight: 500;
   line-height: 16.8px;
+}
+
+.card-cross-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  background-color: #808080;
+}
+
+.card-cross-icon {
+  height: 18px;
+  width: 18px;
 }

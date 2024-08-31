@@ -36,7 +36,6 @@ export default function Home({ userData, metaData }) {
   return (
     <>
       <Head>
-        <title>el Red Profile</title>
         <meta
           property="og:title"
           content={metaData?.profileTitle}

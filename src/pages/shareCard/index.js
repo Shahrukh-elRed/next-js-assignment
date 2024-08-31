@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import cardShare from "../../assets/images/cardShare.png";
+import crossIcon from "../../assets/images/crossIcon.png";
+import Link from "next/link";
 
 const ShareCard = ({ userData, metaData }) => {
   const handleShare = async () => {
@@ -21,7 +23,6 @@ const ShareCard = ({ userData, metaData }) => {
   return (
     <>
       <Head>
-        <title>el Red Profile Card</title>
         <meta
           property="og:cardtitle"
           content={metaData?.cardTitle}
@@ -42,6 +43,19 @@ const ShareCard = ({ userData, metaData }) => {
         <meta property="og:image:height" content="300" />
       </Head>
 
+      <span className="card-cross-div">
+        <Link href="/">
+          <span className="card-cross-container">
+            <Image
+              src={crossIcon}
+              height={18}
+              width={18}
+              alt=""
+              className="card-cross-icon"
+            />
+          </span>
+        </Link>
+      </span>
       <div
         className="card-container"
         style={{
