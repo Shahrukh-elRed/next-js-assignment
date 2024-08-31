@@ -19,7 +19,9 @@ toastConfig({
 
 export default function Home({ userData, metaData }) {
   const handleShare = async () => {
-    const url = "https://next-js-assignment-one.vercel.app/";
+    const time = new Date().getTime().toString().slice(-6);
+
+    const url = `https://next-js-assignment-one.vercel.app/&t=${time}`;
     if (navigator.share) {
       try {
         await navigator.share({

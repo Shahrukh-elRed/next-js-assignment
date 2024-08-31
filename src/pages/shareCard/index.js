@@ -7,12 +7,18 @@ import Link from "next/link";
 import AwardIconsContainer from "@/components/AwardIconsContainer";
 import GroupIconsContainer from "@/components/GroupIconsContainer";
 import BottomIconsContainer from "@/components/BottomIconsContainer";
+import toast, { toastConfig } from "react-simple-toasts";
+import "react-simple-toasts/dist/theme/dark.css";
+
+toastConfig({
+  theme: "dark",
+});
 
 const ShareCard = ({ userData, metaData }) => {
-  console.log(userData);
-
   const handleShare = async () => {
-    const url = "https://next-js-assignment-one.vercel.app/shareCard";
+    const time = new Date().getTime().toString().slice(-6);
+
+    const url = `https://next-js-assignment-one.vercel.app/shareCard&t=${time}`;
     if (navigator.share) {
       try {
         await navigator.share({
