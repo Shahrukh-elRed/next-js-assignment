@@ -8,10 +8,34 @@ import star from "../assets/images/star.png";
 import CommentCard from "@/components/CommentCard";
 import commentImgOne from "../assets/images/comment_one.png";
 import commentImgTwo from "../assets/images/comment_two.png";
+import Head from "next/head";
 
-export default function Home({ userData }) {
+export default function Home({ userData, metaData }) {
+  console.log("metaData", metaData);
+
   return (
     <>
+      <Head>
+        <title>el Red Profile</title>
+        <meta
+          property="og:title"
+          content={metaData?.profileTitle}
+          key="title"
+        />
+        <meta
+          property="og:description"
+          content={metaData?.description}
+          key="description"
+        />
+        <meta
+          property="og:image"
+          content={metaData?.cardImageURL}
+          key="image"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300" />
+      </Head>
       <div
         className="container"
         style={{
@@ -140,5 +164,12 @@ export const getServerSideProps = async () => {
     { method: "POST" }
   );
   userData = await userData.json();
-  return { props: { userData } };
+
+  let metaData = await fetch(
+    "https://dev.elred.io/noSessionPreviewCardScreenshot?userCode=66961e8dcc9a8155d09b8c9b",
+    { method: "POST" }
+  );
+  metaData = await metaData.json();
+
+  return { props: { userData, metaData: metaData?.result?.[0] } };
 };
